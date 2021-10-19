@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM docker-remotes.artifactory.prod.aws.cloud.ihf/node:alpine
 
 WORKDIR /usr/app
 
