@@ -4,7 +4,7 @@ const routes = require ('./routes')
 //const bodyParser = require('body-parser')
 const app = express()
 
-app.use(express.urlencoded({ extended: true})) // apenas dados simples
+app.use(express.urlencoded({ extended: false})) // apenas dados simples
 app.use(express.json()) // json de entrada no body
 
 //app.use('/tech-docs', swaggerUi.server, swaggerUi.setup())
