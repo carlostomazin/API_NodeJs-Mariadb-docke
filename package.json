@@ -1,0 +1,19 @@
+{
+  "name": "node-mysql-workbench",
+  "version": "1.0.0",
+  "description": "Acessar o banco de dados:\r mysql -h 'servidor' -u 'usuario' -p\r Exemplo: mysql -h localhost -u root -p\r Em seguida digitar a senha do usuário root no banco de dados.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.17.1",
+    "nodemon": "^2.0.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -L src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

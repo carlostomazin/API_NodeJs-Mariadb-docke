@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  app:
+    container_name: "nodejs"
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
+
+  db:
+    container_name: "mariadb"
+    build: ./build_db
+    ports:
+      - "3306:3306"
+    restart: 'always'
