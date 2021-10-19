@@ -17,5 +17,3 @@ services:
     ports:
       - "3306:3306"
     restart: 'always'
-    volume:
-      - dados-do-banco:/var/lib/mysql
