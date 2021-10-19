@@ -1,40 +1,40 @@
-Acessar o banco de dados:
-mysql -h 'servidor' -u 'usuario' -p
-Exemplo: mysql -h localhost -u root -p
-Em seguida digitar a senha do usuário root no banco de dados.
+## _API SIMPLES USANDO NODEJS, EXPRESS, DOCKER E MARIADB_
 
-Listar as base de dados:
-SHOW DATABASES;
+## Features
 
-Criar base de dados:
-CREATED DATABASE 'nome_da_base_dados';
-Exemplo: CREATED DATABASE celke;
+- Criar rotas
+- Implementar banco de dados
+- Implementar docker (dockerfile e docker-compose.yml)
+- Implementar documentação usando Swagger
+- Implementar documentação usando RAML
+- Importar para github
+- Documentar repositório github com o README
 
-Acessar a base de dados:
-USE 'nome_da_base_dados';
-Exemplo: USE celke;
+## Requires
 
-Criar nova tabela:
-CREATED TABLE 'nome_tabela' (coluna1, coluna2,...);
-Exemplo: CREATED TABLE users (nome VARCHAR(220), email VARCHAR(220);
+- Instalar o Docker Desktop
+[![official project](https://img.shields.io/badge/-docker%20desktop-blue)](https://www.docker.com/products/docker-desktop)
+- Para sistemas Linux deve instalar o docker compose caso não tenha
+```sh
+$ sudo curl -L https://github.com/docker/compose/releases/download/X.XX.XX/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+- Estar disponivel as portas `3306` e `3000`
+  Comando para verificar a disponibilidade das portas `netstat -o -n -a | findstr  3306` e `netstat -o -n -a | findstr  3000`
+  Caso já estejá sendo usadas só alterar a porta no arquivo docker-compose.yml
 
-Listar as tabelas da base de dados:
-SHOW TABLES;
+## Installation
 
-Cadastrar registro no banco de dados:
-INSERT INTO 'nome_tabela' (coluna1, coluna2) VALUES ('valor1_coluna1', 'valor_coluna2');
-Exemplo: INSERT INTO users (nome, email) VALUES ('Cesar', 'cesar@celke.com.br');
+Abra o seu terminal e caminhe até a pasta que foi extraido o repositório,
+```sh
+C:\Users\Carlos Tomazin\Desktop\API_NodeJs-Mariadb-docke-main>
+```
+já dentro da pasta execute o comando `docker-compose up -d`
+```sh
+C:\Users\Carlos Tomazin\Desktop\API_NodeJs-Mariadb-docke-main> docker-compose up -d
+```
+Verifique a implantação navegando até o endereço da sua aplicação em seu navegador preferido.
 
-Listar registros da tabela:
-SELECT * FROM 'nome_tabela';
-Exemplo: SELECT * FROM users;
-
-Criar usuário: 
-CREATE USER 'novousuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-CREATE USER 'foo'@'localhost' IDENTIFIED WITH mysql_native_password BY 'bar';
-
-Liberar permissão para acessar a base de dados:
-GRANT ALL PRIVILEGES ON * . * TO 'foo'@'localhost';
-
-Uma vez finalizadas as permissões que você quer definir para os seus novos usuários, certifique-se sempre de recarregar todos os privilégios.
-FLUSH PRIVILEGES;
+```sh
+localhost:3000/tech
+```
