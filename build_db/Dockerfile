@@ -1,4 +1,4 @@
-FROM mariadb:latest
+FROM docker-remotes.artifactory.prod.aws.cloud.ihf/mariadb:latest
 
 ENV MARIADB_ROOT_PASSWORD=root
 	
