@@ -3,18 +3,19 @@ version: "3"
 services:
 
   app:
-    container_name: "nodejs"
+    container_name: nodejs
+    restart: always
     build: .
     command: npm start
     ports:
-      - "3000:3000"
+      - 3000:3000
     volumes:
       - .:/usr/app
       - /usr/app/node_modules
 
   db:
-    container_name: "mariadb"
+    container_name: mariadb
     build: ./build_db
     ports:
-      - "3306:3306"
-    restart: 'always'
+      - 3306:3306
+    restart: always
