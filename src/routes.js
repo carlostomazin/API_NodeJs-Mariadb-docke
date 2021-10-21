@@ -3,6 +3,16 @@ const router = new express.Router()
 const mysql = require("./mysql").pool;
 
 // MOSTRAR DADOS
+
+/**
+ * @openapi
+ * /tech:
+ *   get:
+ *     description: Welcome to swagger-jsdoc!
+ *     responses:
+ *       201:
+ *         description: Returns a mysterious string.
+ */
 router.get('/', (req, res) => {
     mysql.getConnection((error, conn) => {
         if (error) { 
