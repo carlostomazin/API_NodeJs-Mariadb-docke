@@ -2,17 +2,6 @@ const express = require('express')
 const router = new express.Router()
 const mysql = require("./mysql").pool;
 
-// MOSTRAR DADOS
-
-/**
- * @openapi
- * /tech:
- *   get:
- *     description: Welcome to swagger-jsdoc!
- *     responses:
- *       201:
- *         description: Returns a mysterious string.
- */
 router.get('/', (req, res) => {
     mysql.getConnection((error, conn) => {
         if (error) { 
@@ -30,7 +19,6 @@ router.get('/', (req, res) => {
     })
 })
 
-// INSERIR DADOS
 router.post('/', (req, res) => {
     mysql.getConnection((error, conn) => {
         if (error) { 
@@ -49,14 +37,12 @@ router.post('/', (req, res) => {
     })
 })
 
-// ALTERAR UM DADO
 router.put('/', (req, res, next) => {
     res.status(201).send({ 
         mensagem: 'Usando o PUT'
     })
 })
 
-// DELETA UM DADO
 router.delete('/', (req, res, next) => {
     res.status(201).send({ 
         mensagem: 'Usando o DELET'
