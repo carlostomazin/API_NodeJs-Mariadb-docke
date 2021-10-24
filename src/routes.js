@@ -19,6 +19,23 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    mysql.getConnection((error, conn) => {
+        if (error) { 
+            return res.status(500).send({ error: error }) 
+        }
+        conn.query( 'SELECT * FROM users WHERE (id = ?)', [req.params.id], (error, resultado) => {
+            if (error) { 
+                return res.status(500).send({ error: error }) 
+            }
+            res.status(201).send({ 
+                response: resultado 
+            })
+            conn.release()
+        })
+    })
+})
+
 router.post('/', (req, res) => {
     mysql.getConnection((error, conn) => {
         if (error) { 
@@ -37,15 +54,37 @@ router.post('/', (req, res) => {
     })
 })
 
-router.put('/', (req, res, next) => {
-    res.status(201).send({ 
-        mensagem: 'Usando o PUT'
+router.put('/', (req, res) => {
+    mysql.getConnection((error, conn) => {
+        if (error) { 
+            return res.status(500).send({ error: error}) 
+        }
+        conn.query ('UPDATE users SET nome = ?, email = ? WHERE id = ? ', [req.body.nome, req.body.email, req.body.id], (error, resultado) => {
+            if (error) { 
+                return res.status(500).send({ error: error, response: null }) 
+            }
+            res.status(201).send({
+                mensagem: 'Usuario alterado com sucesso'
+            })
+            conn.release()
+        })
     })
 })
 
-router.delete('/', (req, res, next) => {
-    res.status(201).send({ 
-        mensagem: 'Usando o DELET'
+router.delete('/:id', (req, res) => {
+    mysql.getConnection((error, conn) => {
+        if (error) { 
+            return res.status(500).send({ error: error}) 
+        }
+        conn.query ('DELETE FROM users WHERE (id = ?)', [req.params.id], (error, resultado) => {
+            if (error) { 
+                return res.status(500).send({ error: error, response: null }) 
+            }
+            res.status(201).send({
+                mensagem: 'Usuario deletado com sucesso'
+            })
+            conn.release()
+        })
     })
 })
 
